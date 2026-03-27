@@ -1,37 +1,1119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
-  </style>
-</head>
-<body>
-  <header class="container" role="banner">
-    <nav aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#projects">作品集</a>
-      <a href="https://example.com/blog">技術部落格</a>
-      <a href="mailto:me@example.com">聯絡我</a>
-    </nav>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R.Ray | Creative Developer</title>
+    <meta name="description" content="Creative Developer / Product Builder" />
+    <style>
+      /* CSS:BASE-START */
+      :root {
+        --bg: #fffdf8;
+        --bg-soft: #fff8ee;
+        --surface: rgba(255, 255, 255, 0.82);
+        --surface-strong: #ffffff;
+        --line: #eadfce;
+        --line-soft: #f3e8d8;
+        --text: #5a4a3f;
+        --text-strong: #3d3129;
+        --text-soft: #7f7065;
+        --primary: #f0a86b;
+        --primary-deep: #de8f4b;
+        --accent: #9bc9be;
+        --accent-soft: #eef8f5;
+        --shadow: 0 16px 40px rgba(187, 156, 123, 0.12);
+        --radius-xl: 28px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --container: 1200px;
+      }
 
-  <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://source.unsplash.com/600x200/?technology,abstract" alt="">
-  </footer>
-</body>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top right, rgba(255, 225, 192, 0.55), transparent 28%),
+          radial-gradient(circle at left top, rgba(190, 226, 216, 0.4), transparent 24%),
+          linear-gradient(180deg, #fffefb 0%, #fff9f1 46%, #fffdf8 100%);
+        line-height: 1.8;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+      }
+
+      .container {
+        width: min(100% - 40px, var(--container));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 88px 0;
+      }
+
+      .section-heading {
+        max-width: 760px;
+        margin-bottom: 36px;
+      }
+
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        padding: 8px 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.64);
+        color: var(--primary-deep);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+
+      .section-title {
+        margin: 0 0 14px;
+        color: var(--text-strong);
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        max-width: 14ch;
+      }
+
+      .section-text {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 16px;
+        max-width: 62ch;
+      }
+
+      .card {
+        border: 1px solid rgba(234, 223, 206, 0.95);
+        border-radius: var(--radius-xl);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface-strong);
+        color: var(--text-soft);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .media-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 24px;
+      }
+      /* CSS:BASE-END */
+
+      /* CSS:HEADER-START */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        padding: 16px 0;
+        background: rgba(255, 252, 246, 0.72);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(234, 223, 206, 0.75);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand-title {
+        color: var(--text-strong);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-subtitle {
+        color: var(--text-soft);
+        font-size: 13px;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border-radius: 999px;
+        color: var(--text-soft);
+        font-size: 14px;
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        color: var(--text-strong);
+        background: rgba(255, 255, 255, 0.78);
+      }
+      /* CSS:HEADER-END */
+
+      /* CSS:HERO-START */
+      .hero-section {
+        padding: 56px 0 72px;
+      }
+
+      .hero-grid {
+        display: block;
+      }
+
+      .hero-card {
+        padding: 36px;
+        background:
+          radial-gradient(circle at top right, rgba(255, 220, 185, 0.42), transparent 26%),
+          radial-gradient(circle at left bottom, rgba(185, 223, 212, 0.24), transparent 24%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 243, 0.96));
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.72fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+      }
+
+      .hero-badge {
+        margin-bottom: 18px;
+        color: var(--primary-deep);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .hero-title {
+        max-width: 11ch;
+        margin: 0 0 20px;
+        color: var(--text-strong);
+        font-size: clamp(40px, 6vw, 68px);
+        line-height: 1.12;
+        letter-spacing: -0.045em;
+      }
+
+      .hero-intro {
+        max-width: 62ch;
+        margin: 0 0 16px;
+        color: var(--text-soft);
+        font-size: 17px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .hero-quote {
+        max-width: 58ch;
+        margin: 28px 0 0;
+        padding: 22px 24px;
+        border: 1px solid rgba(155, 201, 190, 0.55);
+        border-radius: 22px;
+        background: var(--accent-soft);
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.9;
+      }
+
+      .hero-media {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 16px;
+        min-width: 0;
+      }
+
+      .hero-image-wrap {
+        min-height: 100%;
+        overflow: hidden;
+        border-radius: 28px;
+        background: #f5efe5;
+      }
+
+      .hero-note {
+        padding: 18px 20px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid var(--line-soft);
+      }
+
+      .hero-note-title {
+        margin: 0 0 8px;
+        color: var(--text-strong);
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .hero-note-text {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 14px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 15px;
+        font-weight: 800;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: linear-gradient(135deg, #f4b378 0%, #f0a86b 100%);
+        color: #fffaf5;
+        box-shadow: 0 12px 24px rgba(240, 168, 107, 0.28);
+      }
+
+      .button-secondary {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--text-strong);
+      }
+      /* CSS:HERO-END */
+
+      /* CSS:/* CSS:ABOUT-START */
+      .about-section .container {
+        display: grid;
+        gap: 28px;
+      }
+
+      .about-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 0;
+      }
+
+      .about-summary {
+        padding: 24px 26px;
+        align-self: center;
+      }
+
+      .about-summary-text {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 16px;
+        line-height: 1.9;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .about-card {
+        padding: 32px;
+        display: grid;
+        gap: 24px;
+        min-height: 100%;
+      }
+
+      .about-copy {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 16px;
+        line-height: 1.95;
+        max-width: 60ch;
+      }
+
+      .about-copy strong {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--text-strong);
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .about-side {
+        display: grid;
+        grid-template-rows: minmax(320px, 1fr);
+        gap: 0;
+        min-height: 100%;
+      }
+
+      .about-image-card {
+        overflow: hidden;
+        min-height: 100%;
+        background: #f6efe6;
+        border-radius: 28px;
+      }
+
+      .about-panel {
+        padding: 28px 32px;
+        margin-top: 0;
+      }
+
+      .about-panel-title {
+        margin: 0 0 18px;
+        color: var(--text-strong);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .about-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: var(--text-soft);
+        font-size: 15px;
+      }
+
+      .about-list li {
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid var(--line-soft);
+        line-height: 1.8;
+      }
+      /* CSS:ABOUT-END */
+
+      /* CSS:SKILLS-START */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .skill-card {
+        padding: 28px;
+      }
+
+      .skill-title {
+        margin: 0 0 12px;
+        color: var(--text-strong);
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .skill-text {
+        margin: 0 0 18px;
+        color: var(--text-soft);
+        font-size: 15px;
+      }
+
+      .skill-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding-left: 20px;
+        color: var(--text-soft);
+        font-size: 15px;
+      }
+
+      .skills-footer {
+        margin-top: 24px;
+        padding: 24px 28px;
+        border: 1px dashed var(--line);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.55);
+        color: var(--text-soft);
+        font-size: 16px;
+      }
+      /* CSS:SKILLS-END */
+
+      /* CSS:PROJECTS-START */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+      }
+
+      .project-image-wrap {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        border-radius: 22px;
+        background: #f7efe4;
+      }
+
+      .project-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #fde0c6 0%, #fff2e3 100%);
+        color: var(--primary-deep);
+        font-weight: 800;
+        font-size: 18px;
+      }
+
+      .project-title {
+        margin: 0;
+        color: var(--text-strong);
+        font-size: 22px;
+        line-height: 1.4;
+      }
+
+      .project-summary {
+        margin: 0;
+        color: var(--primary-deep);
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .project-text {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 15px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: auto;
+      }
+      /* CSS:PROJECTS-END */
+
+      /* CSS:CONTACT-START */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .contact-form-card,
+      .contact-info-card {
+        padding: 32px;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .form-row {
+        display: grid;
+        gap: 8px;
+      }
+
+      .form-label {
+        color: var(--text-strong);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--text);
+        font: inherit;
+      }
+
+      .form-textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .contact-item-title {
+        margin: 0 0 4px;
+        color: var(--text-strong);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .contact-item-text {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 15px;
+        word-break: break-word;
+      }
+
+      .contact-note {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line-soft);
+        color: var(--text-soft);
+        font-size: 14px;
+      }
+      /* CSS:CONTACT-END */
+
+      /* CSS:FOOTER-START */
+      .site-footer {
+        padding: 28px 0 40px;
+        color: var(--text-soft);
+        font-size: 14px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(234, 223, 206, 0.9);
+      }
+      /* CSS:FOOTER-END */
+
+      /* CSS:/* CSS:RWD-START */
+      @media (max-width: 1080px) {
+        .hero-layout,
+        .about-heading,
+        .about-grid,
+        .contact-grid,
+        .projects-grid,
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-media {
+          grid-template-rows: auto auto;
+        }
+
+        .hero-image-wrap {
+          min-height: 360px;
+        }
+
+        .about-heading {
+          align-items: start;
+        }
+
+        .about-heading-copy .section-title,
+        .about-heading-copy .section-text {
+          max-width: none;
+        }
+
+        .about-side {
+          min-height: 360px;
+        }
+
+        .about-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .section {
+          padding: 72px 0;
+        }
+
+        .site-header {
+          position: static;
+        }
+
+        .header-inner,
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-list {
+          gap: 8px;
+        }
+
+        .hero-section {
+          padding-top: 24px;
+        }
+
+        .hero-card,
+        .about-card,
+        .contact-form-card,
+        .contact-info-card,
+        .skill-card,
+        .project-card,
+        .about-panel,
+        .about-summary {
+          padding: 24px;
+        }
+
+        .hero-card {
+          padding: 24px;
+        }
+
+        .hero-title {
+          font-size: 40px;
+        }
+
+        .section-title {
+          max-width: none;
+        }
+
+        .hero-image-wrap,
+        .about-image-card {
+          min-height: 260px;
+        }
+
+        .about-list {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* CSS:RWD-END */
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container header-inner">
+          <a class="brand" href="#hero">
+            <span class="brand-title">R.Ray</span>
+            <span class="brand-subtitle">Creative Developer / Product Builder</span>
+          </a>
+
+          <nav class="site-nav" aria-label="主要導覽">
+            <ul class="nav-list">
+              <li><a class="nav-link" href="#hero">首頁</a></li>
+              <li><a class="nav-link" href="#about">關於我</a></li>
+              <li><a class="nav-link" href="#skills">能力</a></li>
+              <li><a class="nav-link" href="#projects">作品</a></li>
+              <li><a class="nav-link" href="#contact">聯絡</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <!-- HTML:HERO-START -->
+        <section class="hero-section" id="hero">
+          <div class="container hero-grid">
+            <div class="hero-card card">
+              <div class="hero-layout">
+                <div class="hero-copy">
+                  <p class="hero-badge">PRODUCT MINDED / SOFT</p>
+                  <h1 class="hero-title">把腦海裡的畫面，慢慢做成一個剛好有人想留下來的世界</h1>
+                  <p class="hero-intro">
+                    我是
+                    Ray，一位介於創作者與開發者之間的人。喜歡把一個模糊的想法，慢慢整理成清楚的結構、舒服的畫面，最後變成真的可以被使用的產品。
+                  </p>
+                  <p class="hero-intro">
+                    我用全端技術與 AI
+                    把靈感落地，也用產品思維讓每個細節更貼近真實需求。比起把功能做得很滿，我更喜歡把體驗做得剛剛好——像一個不吵鬧，但會讓人想再回來一次的地方。
+                  </p>
+                  <div class="hero-actions">
+                    <a class="button button-primary" href="#projects">看看我做過的東西</a>
+                    <a class="button button-secondary" href="#contact">一起聊聊你的想法</a>
+                  </div>
+                  <p class="hero-quote">
+                    先理解問題，再整理結構，最後把體驗做得自然一點。像寫程式，也像是在慢慢調整一個會呼吸的作品。
+                  </p>
+                </div>
+
+                <div class="hero-media">
+                  <div class="hero-image-wrap">
+                    <img
+                      class="media-image"
+                      src="https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=80&w=1400"
+                      alt="來自 Unsplash 的淺色工作桌與筆電情境照"
+                    />
+                  </div>
+                  <div class="hero-note">
+                    <p class="hero-note-title">我喜歡的狀態</p>
+                    <p class="hero-note-text">把複雜的東西整理清楚，把該留下的溫度留在畫面裡。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- HTML:HERO-END -->
+
+        <!-- HTML:ABOUT-START -->
+        <section class="section about-section" id="about">
+          <div class="container">
+            <div class="section-heading about-heading">
+              <div class="about-heading-copy">
+                <span class="section-kicker">ABOUT</span>
+                <h2 class="section-title">不是為了寫程式，而是為了把想法做出來</h2>
+                <p class="section-text">我習慣從模糊開始，把東西慢慢做清楚。</p>
+              </div>
+            </div>
+
+            <div class="about-grid">
+              <article class="about-card card">
+                <p class="about-copy">
+                  <strong>▍為什麼開始</strong><br />
+                  一開始吸引我的，不只是網站能不能動，而是它為什麼會讓人想停下來。那些舒服的節奏、剛剛好的留白，讓我開始對畫面背後的結構產生興趣。
+                </p>
+                <p class="about-copy">
+                  <strong>▍我在做的事</strong><br />
+                  我喜歡把一個還很模糊的想法，慢慢整理成有邏輯、有節奏的產品。這也是我選擇全端開發的原因：我想完整參與一個東西從想法到被使用的過程。
+                </p>
+                <p class="about-copy">
+                  <strong>▍我在意的事</strong><br />
+                  我在意效率，也在意感受。如果一個流程可以更直覺、一個畫面可以更不費力，那就值得再多調整一點。AI
+                  對我來說不是噱頭，而是能不能真的讓思考更清楚、讓產品更靠近真實需求。
+                </p>
+              </article>
+
+              <div class="about-side">
+                <div class="about-image-card card">
+                  <img
+                    class="media-image"
+                    src="https://images.unsplash.com/photo-1668713447978-1e47fcfeff4d?auto=format&fit=crop&fm=jpg&q=80&w=1400"
+                    alt="來自 Unsplash 的筆記本與咖啡工作桌情境照"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <aside class="about-panel card">
+              <h3 class="about-panel-title">我做東西的方式，大概是這樣</h3>
+              <ul class="about-list">
+                <li>先看清問題，再開始設計解法</li>
+                <li>重視效率，也重視使用時的感受</li>
+                <li>喜歡把抽象想法變成清楚結構</li>
+                <li>在創意與可落地之間找到平衡</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+        <!-- HTML:ABOUT-END -->
+
+        <!-- HTML:SKILLS-START -->
+        <section class="section skills-section" id="skills">
+          <div class="container">
+            <div class="section-heading">
+              <span class="section-kicker">HOW I WORK</span>
+              <h2 class="section-title">我怎麼把一個想法，慢慢做成能被使用的東西</h2>
+              <p class="section-text">
+                比起列滿一整頁技術名詞，我更想讓你看見我如何思考、如何整理，以及如何把東西真正做出來。
+              </p>
+            </div>
+
+            <div class="skills-grid">
+              <article class="skill-card card">
+                <h3 class="skill-title">從畫面開始，但不只停在畫面</h3>
+                <p class="skill-text">
+                  我在意介面的節奏、留白與操作感，也在意它背後是不是有清楚的結構支撐。好看的東西很多，但真正能被使用的畫面，通常都整理得很乾淨。
+                </p>
+                <ul class="skill-list">
+                  <li>前端切版、RWD 與元件化思維</li>
+                  <li>介面還原、細節調整與使用流暢度</li>
+                  <li>兼顧美感、資訊層級與可讀性</li>
+                </ul>
+              </article>
+
+              <article class="skill-card card">
+                <h3 class="skill-title">把前後端接成一個完整體驗</h3>
+                <p class="skill-text">
+                  我喜歡從整體去理解產品，而不是只看單一頁面。前端是入口，後端是支撐，資料流與邏輯順了，使用者才會覺得自然。
+                </p>
+                <ul class="skill-list">
+                  <li>前後端串接與 API 設計規劃</li>
+                  <li>資料流、功能邏輯與頁面整合</li>
+                  <li>從雛形到可運作功能的完整落地</li>
+                </ul>
+              </article>
+
+              <article class="skill-card card">
+                <h3 class="skill-title">把 AI 放進真正有用的地方</h3>
+                <p class="skill-text">
+                  我把 AI
+                  當成協作工具，不是為了看起來厲害，而是讓需求更容易被拆解、原型更快被建立、產品更快靠近可用的狀態。
+                </p>
+                <ul class="skill-list">
+                  <li>用 AI 協助需求整理與開發流程優化</li>
+                  <li>將 AI 串進網站與產品功能情境中</li>
+                  <li>同時提升效率與產品完成度</li>
+                </ul>
+              </article>
+
+              <article class="skill-card card">
+                <h3 class="skill-title">先理解問題，再選擇做法</h3>
+                <p class="skill-text">
+                  很多時候，真正困難的不是技術，而是問題本身。如果需求沒有先被看清楚，再漂亮的實作也很難真的落地。
+                </p>
+                <ul class="skill-list">
+                  <li>拆解複雜需求，整理成可執行步驟</li>
+                  <li>從使用者角度優化流程與資訊結構</li>
+                  <li>在可行性、效率與體驗之間取得平衡</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="skills-footer">
+              我相信技術只是工具，真正重要的是：你做的東西，是否真的有人願意用，並且願意再回來一次。
+            </div>
+          </div>
+        </section>
+        <!-- HTML:SKILLS-END -->
+
+        <!-- HTML:PROJECTS-START -->
+        <section class="section projects-section" id="projects">
+          <div class="container">
+            <div class="section-heading">
+              <span class="section-kicker">PROJECTS</span>
+              <h2 class="section-title">我喜歡把一些想法，做成可以被使用的東西</h2>
+              <p class="section-text">
+                這些作品是概念型專案，但它們都從很真實的情境長出來：有人有想法卻不知道怎麼開始、資訊很多卻很難整理、流程複雜卻總是說不清楚。
+              </p>
+            </div>
+
+            <div class="projects-grid">
+              <article class="project-card card">
+                <div class="project-image-wrap">
+                  <img
+                    class="media-image"
+                    src="https://images.unsplash.com/photo-1764755932155-dabbee87df7e?auto=format&fit=crop&fm=jpg&q=80&w=1200"
+                    alt="來自 Unsplash 的極簡網站工作桌情境照"
+                  />
+                </div>
+                <span class="project-number">01</span>
+                <div>
+                  <h3 class="project-title">AI Landing Page 自動生成器</h3>
+                  <p class="project-summary">把一句想法，變成一個可用的網站雛形。</p>
+                </div>
+                <p class="project-text">
+                  適合剛開始做產品、需要快速整理品牌方向的人。使用者只要輸入品牌定位、目標受眾與核心訊息，系統就能透過
+                  AI 生成網站架構、區塊文案與基本版面邏輯。
+                </p>
+                <div class="project-tags">
+                  <span class="chip">AI Workflow</span>
+                  <span class="chip">Landing Page</span>
+                  <span class="chip">Product Thinking</span>
+                </div>
+              </article>
+
+              <article class="project-card card">
+                <div class="project-image-wrap">
+                  <img
+                    class="media-image"
+                    src="https://images.unsplash.com/photo-1668713447978-1e47fcfeff4d?auto=format&fit=crop&fm=jpg&q=80&w=1200"
+                    alt="來自 Unsplash 的筆記與規劃工作桌情境照"
+                  />
+                </div>
+                <span class="project-number">02</span>
+                <div>
+                  <h3 class="project-title">個人知識整理系統</h3>
+                  <p class="project-summary">把零碎筆記，整理成能被重新使用的知識。</p>
+                </div>
+                <p class="project-text">
+                  適合需要長期學習、整理內容、回收靈感的人。以 Markdown 作為輸入基礎，搭配 AI
+                  分類、摘要與關聯整理，讓零散筆記慢慢長成清楚的知識系統。
+                </p>
+                <div class="project-tags">
+                  <span class="chip">Markdown</span>
+                  <span class="chip">AI Summary</span>
+                  <span class="chip">Knowledge Design</span>
+                </div>
+              </article>
+
+              <article class="project-card card">
+                <div class="project-image-wrap">
+                  <img
+                    class="media-image"
+                    src="https://images.unsplash.com/photo-1766555766657-ea8f81a67934?auto=format&fit=crop&fm=jpg&q=80&w=1200"
+                    alt="來自 Unsplash 的便利貼與流程規劃工作情境照"
+                  />
+                </div>
+                <span class="project-number">03</span>
+                <div>
+                  <h3 class="project-title">服務流程可視化工具</h3>
+                  <p class="project-summary">把抽象流程，變成可以被看見與調整的畫面。</p>
+                </div>
+                <p class="project-text">
+                  適合需要和團隊對齊想法、把複雜流程說清楚的人。這個工具讓開發者、PM
+                  或設計師能把服務流程直接拉出來、整理節點關係，再回頭優化整體邏輯。
+                </p>
+                <div class="project-tags">
+                  <span class="chip">UX Flow</span>
+                  <span class="chip">Structure</span>
+                  <span class="chip">Visual Thinking</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!-- HTML:PROJECTS-END -->
+
+        <!-- HTML:CONTACT-START -->
+        <section class="section contact-section" id="contact">
+          <div class="container">
+            <div class="section-heading">
+              <span class="section-kicker">CONTACT</span>
+              <h2 class="section-title">
+                如果你剛好有一個想法，我很樂意一起看看它可以變成什麼樣子
+              </h2>
+              <p class="section-text">
+                不管是合作邀約、工作機會，或只是單純想聊聊產品、網站、開發流程，都歡迎用你最自在的方式找到我。
+              </p>
+            </div>
+
+            <div class="contact-grid">
+              <div class="contact-form-card card">
+                <form class="contact-form" action="#" method="post">
+                  <div class="form-row">
+                    <label class="form-label" for="name">你的名字</label>
+                    <input
+                      class="form-input"
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="怎麼稱呼你呢？"
+                    />
+                  </div>
+
+                  <div class="form-row">
+                    <label class="form-label" for="email">Email</label>
+                    <input
+                      class="form-input"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+
+                  <div class="form-row">
+                    <label class="form-label" for="type">聯絡類型</label>
+                    <select class="form-select" id="type" name="type">
+                      <option>想討論合作</option>
+                      <option>工作機會</option>
+                      <option>想交流 / 聊聊</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label class="form-label" for="message">想說的內容</label>
+                    <textarea
+                      class="form-textarea"
+                      id="message"
+                      name="message"
+                      placeholder="你可以簡單寫下需求、想法，或只是想打個招呼。"
+                    ></textarea>
+                  </div>
+
+                  <div>
+                    <button class="button button-primary" type="submit">送出訊息</button>
+                  </div>
+                </form>
+              </div>
+
+              <aside class="contact-info-card card">
+                <ul class="contact-list">
+                  <li>
+                    <p class="contact-item-title">Email</p>
+                    <p class="contact-item-text">
+                      <a href="mailto:ray102467@gmail.com">ray102467@gmail.com</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="contact-item-title">GitHub</p>
+                    <p class="contact-item-text">
+                      <a href="https://github.com/" target="_blank">github.com</a>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="contact-item-title">合作方向</p>
+                    <p class="contact-item-text">網站開發、產品雛形、個人品牌頁面設計</p>
+                  </li>
+                </ul>
+
+                <p class="contact-note">
+                  有些想法不一定要很完整才值得開始聊。很多事情，都是在對話裡慢慢變清楚的。
+                  <br /><br />
+                  我通常會慢慢看完，再好好回覆。
+                </p>
+              </aside>
+            </div>
+          </div>
+        </section>
+        <!-- HTML:CONTACT-END -->
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <span>© 2026 Ray. Built with HTML & CSS only.</span>
+          <span>Soft light, clear structure, and a little room for imagination.</span>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
